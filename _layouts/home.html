@@ -6,12 +6,15 @@ layout: default
   <ul class="post-list">
     {% for post in paginator.posts %}
     <li class="post-item">
-      {% assign img_parts = post.content | split: '<img src="' %}
-      {% if img_parts.size > 1 %}
-        {% assign img_src = img_parts[1] | split: '"' | first %}
-        <a class="post-thumbnail-link" href="{{ post.url | relative_url }}">
-          <img class="post-thumbnail" src="{{ img_src }}" alt="">
-        </a>
+      {% assign img_tags = post.content | split: '<img ' %}
+      {% if img_tags.size > 1 %}
+        {% assign first_img = img_tags[1] | split: '>' | first %}
+        {% if first_img contains 'src="' %}
+          {% assign img_src = first_img | split: 'src="' | last | split: '"' | first %}
+          <a class="post-thumbnail-link" href="{{ post.url | relative_url }}">
+            <img class="post-thumbnail" src="{{ img_src }}" alt="">
+          </a>
+        {% endif %}
       {% endif %}
       <div class="post-item-body">
         <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
