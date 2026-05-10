@@ -6,19 +6,28 @@ layout: default
   <ul class="post-list">
     {% for post in paginator.posts %}
     <li class="post-item">
-      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-      <div class="post-meta">
-        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %B %Y" }}</time>
-        {% if post.categories.size > 0 %}
-          &nbsp;|&nbsp;
-          {% for cat in post.categories %}
-            <a href="{{ '/category/' | append: cat | slugify | relative_url }}">{{ cat }}</a>
-          {% endfor %}
+      {% assign img_parts = post.content | split: '<img src="' %}
+      {% if img_parts.size > 1 %}
+        {% assign img_src = img_parts[1] | split: '"' | first %}
+        <a class="post-thumbnail-link" href="{{ post.url | relative_url }}">
+          <img class="post-thumbnail" src="{{ img_src }}" alt="">
+        </a>
+      {% endif %}
+      <div class="post-item-body">
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <div class="post-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %B %Y" }}</time>
+          {% if post.categories.size > 0 %}
+            &nbsp;|&nbsp;
+            {% for cat in post.categories %}
+              <a href="{{ '/category/' | append: cat | slugify | relative_url }}">{{ cat }}</a>
+            {% endfor %}
+          {% endif %}
+        </div>
+        {% if post.excerpt %}
+        <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 200 }}</p>
         {% endif %}
       </div>
-      {% if post.excerpt %}
-      <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 200 }}</p>
-      {% endif %}
     </li>
     {% endfor %}
   </ul>
