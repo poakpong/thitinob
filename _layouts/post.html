@@ -11,13 +11,18 @@ layout: default
       {% if page.categories.size > 0 %}
         &nbsp;|&nbsp;
         {% for cat in page.categories %}
-          <a href="{{ '/category/' | append: cat | slugify | relative_url }}">{{ cat }}</a>
+          <a href="{{ '/category/' | append: cat | downcase | relative_url }}">{{ cat }}</a>
         {% endfor %}
       {% endif %}
       {% if page.tags.size > 0 %}
-        &nbsp;|&nbsp;
+        &nbsp;|&nbsp; แท็ก:
         {% for tag in page.tags %}
-          <a class="tag" href="{{ '/tag/' | append: tag | slugify | relative_url }}">{{ tag }}</a>
+          {% assign tag_data = site.data.tag_slugs | where: "name", tag | first %}
+          {% if tag_data %}
+            <a class="tag" href="{{ '/tag/' | append: tag_data.slug | relative_url }}">{{ tag }}</a>
+          {% else %}
+            <span class="tag">{{ tag }}</span>
+          {% endif %}
         {% endfor %}
       {% endif %}
     </div>
