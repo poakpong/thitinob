@@ -1,0 +1,51 @@
+title: "เราเดินด้วยคำถาม"
+description: "ฐิตินบ โกมลนิมิ | Thitinob.com"
+url: "https://poakpong.github.io"
+baseurl: "/thitinob"
+lang: th
+author:
+  name: "ฐิตินบ โกมลนิมิ"
+  email: ""
+
+# Build
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:year/:month/:day/:slug/
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Pagination
+paginate: 10
+paginate_path: "/page/:num/"
+
+# Collections
+collections_dir: .
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+
+# Exclude
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - "*.py"

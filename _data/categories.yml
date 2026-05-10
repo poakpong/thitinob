@@ -1,0 +1,6 @@
+- name: "Social"
+  slug: "social"
+- name: "Stuff"
+  slug: "stuff"
+- name: "Life"
+  slug: "life"

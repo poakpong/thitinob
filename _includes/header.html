@@ -1,0 +1,12 @@
+<header class="site-header">
+  <div class="container">
+    <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <nav class="site-nav">
+      <a href="{{ '/' | relative_url }}">หน้าแรก</a>
+      <a href="{{ '/about/' | relative_url }}">เกี่ยวกับ</a>
+      {% for cat in site.data.categories %}
+        <a href="{{ '/category/' | append: cat.slug | relative_url }}">{{ cat.name }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+</header>

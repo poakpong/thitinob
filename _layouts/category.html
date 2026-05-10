@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<div class="category-page">
+  <h1>หมวดหมู่: {{ page.category }}</h1>
+  <ul class="post-list">
+    {% assign filtered = site.posts | where_exp: "post", "post.categories contains page.category" %}
+    {% for post in filtered %}
+    <li class="post-item">
+      <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %B %Y" }}</time>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

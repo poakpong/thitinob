@@ -1,0 +1,108 @@
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Sarabun', 'Noto Sans Thai', sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333;
+  background: #fafafa;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+
+.site-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #333;
+  text-decoration: none;
+}
+
+.site-nav {
+  margin-top: 0.5rem;
+}
+
+.site-nav a {
+  margin-right: 1rem;
+  color: #555;
+  text-decoration: none;
+}
+
+.site-nav a:hover { color: #e74c3c; }
+
+/* Post list */
+.post-list { list-style: none; }
+
+.post-item {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.post-item h2 { font-size: 1.2rem; margin-bottom: 0.3rem; }
+.post-item h2 a { color: #333; text-decoration: none; }
+.post-item h2 a:hover { color: #e74c3c; }
+
+.post-meta { font-size: 0.85rem; color: #777; margin-bottom: 0.5rem; }
+.post-meta a { color: #777; text-decoration: none; }
+.post-meta a:hover { color: #e74c3c; }
+.post-excerpt { color: #555; font-size: 0.95rem; }
+
+/* Post content */
+.post-header { margin-bottom: 2rem; }
+.post-title { font-size: 1.8rem; line-height: 1.4; margin-bottom: 0.5rem; }
+.post-content { line-height: 1.9; }
+.post-content img { max-width: 100%; height: auto; display: block; margin: 1.5rem auto; }
+.post-content p { margin-bottom: 1.2rem; }
+.post-content h2, .post-content h3 { margin: 2rem 0 0.8rem; }
+
+/* Tags */
+.tag, .tag-cloud {
+  display: inline-block;
+  background: #f0f0f0;
+  padding: 0.1em 0.5em;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  color: #555;
+  text-decoration: none;
+  margin: 0.1rem;
+}
+.tag:hover, .tag-cloud:hover { background: #e74c3c; color: #fff; }
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  color: #555;
+}
+
+.pagination a {
+  color: #e74c3c;
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #e74c3c;
+  border-radius: 3px;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 3rem;
+  padding: 2rem 0;
+  border-top: 1px solid #eee;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #777;
+}
