@@ -4,6 +4,7 @@
     <nav class="site-nav">
       <a href="{{ '/' | relative_url }}">หน้าแรก</a>
       <a href="{{ '/about/' | relative_url }}">เกี่ยวกับ</a>
+      <a href="{{ '/tags/' | relative_url }}">แท็ก</a>
       {% for cat in site.data.categories %}
         <a href="{{ '/category/' | append: cat.slug | relative_url }}">{{ cat.name }}</a>
       {% endfor %}

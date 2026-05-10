@@ -1,10 +1,5 @@
 <footer class="site-footer">
   <div class="container">
     <p>&copy; {{ site.time | date: "%Y" }} {{ site.author.name }}</p>
-    <div class="tag-cloud">
-      {% for item in site.data.tag_slugs %}
-        <a class="tag-cloud" href="{{ '/tag/' | append: item.slug | relative_url }}">{{ item.name }}</a>
-      {% endfor %}
-    </div>
   </div>
 </footer>
